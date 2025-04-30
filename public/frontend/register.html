@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - Life College of Theology Abuja</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-clock"></i> Mon — Fri: 9am - 5pm</span>
+                <span><i class="fas fa-envelope"></i> abujalifecollege@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/head.png" alt="Institution Logo"></a>
+            </div>
+
+            <div id="showMenu">
+                <i class="fas fa-bars" id="showMenu"></i>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <div id="closeMenu">
+                    <i class="fas fa-times" id="closeMenu"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html" class="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Registration Form -->
+    <div class="registration-container">
+        <h2>Create Account</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error-message" id="nameError">Please enter your full name</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="matricNumber">Matric Number</label>
+                <input type="text" id="matricNumber" name="matricNumber" required>
+                <div class="error-message" id="matricError">Please enter your matric number</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="password-requirements">
+                    Password must be at least 8 characters long and include uppercase, lowercase, and numbers
+                </div>
+                <div class="error-message" id="passwordError">Password does not meet requirements</div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login here</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

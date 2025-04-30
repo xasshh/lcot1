@@ -1,0 +1,91 @@
+@include('layouts.header') 
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1>History</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <a href="#">Introduction</a>
+                <span class="separator">/</span>
+                <span class="current">History</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- After your hero section -->
+    
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <h2>Our History</h2>
+            <div class="history-content">
+                <p>LIFE Theological Seminary, Abuja Campus, as the College was known before October 2013 was established out of the concern to train men and women for the work in the Northern part of our great nation after the creation of Abuja District by the leadership of Foursquare Gospel Church in Nigeria. The vision was conceived in 1996 under the leaderships of the then Provost of the Seminary, Rev. Matthew Oshibanjo and the then Abuja District Overseer, Rev. Emmanuel Ohikwueme.</p>
+                
+                <p>On May 20 1998, three faculty members, namely, Rev. M. O. Oshibanjo, Rev. Cletus Orgu and Rev. Soji Orebayo left Ikorodu to Abuja for the implementation of the vision. Entrance Examination was conducted on May 23, followed by matriculation of fourteen (14) students. Three students later joined on Sunday May 24 1998 and lectures commenced on Monday 25th. Since then, the campus runs Summer Programmes between May and June.  Every year two sets of three lecturers comes from Ikorodu and joined by the lecturers on ground in Abuja, until October 2013 when the school was given a full-fledged status.</p>
+                
+                <p>In its first year, lectures were held in Foursquare Gospel Church Garki’s Children Church.  Lectures were held in the next two years at Festival Road Primary School, adjacent to the Garki Church.  The venue was then moved to LEA Primary School, Wuse Zone 3.  Due to Abuja Municipal Council’s policy not to have any religious activities in its schools, the Seminary was forced to hold lectures at Light Way Academy, Wuse II, a Private Primary School.  Due to too many Church programmes on the premises, the Seminary moved back to Zone 3 school. </p>
+    
+                <p>In 2008, under the student’s leadership of Sister Rosaline Adesode Vakporaye, agreement was reached with the Pastor of Foursquare Gospel Church, Utako to be using the school within Church premises for lectures.  Lectures hold in the Church’s two upper floors since 2008 till date.  Rev. Sam Osivwemu, the Senior Pastor is highly appreciated for being a wonderful host.</p>
+                
+                <p>The Seminary in Abuja then only offers Diploma in Theology and Bachelor of Theology (B. Th.)  in Pastoral Studies programmes for four and five years respectively.  Graduation and Matriculation for new students admitted in May are conducted on the third Saturday's in October.</p>
+                
+                <h2>Inauguration as Full-Fledged College of Theology</h2>
+    
+                <p>In October 2013 the campus was inaugurated as a full-fledged College of Theology by the then General Overseer, Rev. Felix Meduoye, and Rev. Dr. J. M. O. Rogho was installed as the pioneer Rector.  In August of the same year, the weekend programme started in Utako Church premises until August 2016 when it moved to the premises of Garki Headquarters Church, with the permission of the then Northern Regional Coordinator – Rev. Isaac O. Komolafe. In 2014 the Executive programme of the school started in Rogel Brooks Hotel Utako, and later moved to Foursquare Gospel Church Utako for lectures. </p>
+                
+                <p>In 2018 the college opened a new center in Minna Niger State and in the following year 2019 began the Masters in Theology programme in Foursquare Gospel Church Utako school premises. Since the establishment of the college in 1998 the college has graduated students with M.Th., B.Th. Diploma and CCM programmes in over two decades of the existence of the college.</p>
+    
+                <p>In 2023 the first rector of the college the person of Rev Dr Johnson Rogho retires from active service of the establishment and Rev Kunle Ibikunle was installed as the new rector of the college on Saturday 21st of October 2023 during the annual matriculation and graduation ceremony of the college. Under the leadership of the new rector, new centers were created namely Nyanya, Kubwa, Wuse, Asokoro, Akwanga and Otukpo. </p>
+                
+                <p>Several efforts were made in the time past to secure a landed property where the main campus of the school is to be built but to no avail. But a landed property has now been acquired at ACO Estate, off Airport Road, Abuja where the main campus of the college will be built.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission, Vision & Values Section -->
+    <section class="mvv-section">
+        <div class="container">
+            <div class="mvv-container">
+                <!-- Mission Statement -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Mission Statement</h3>
+                    <p>Preparing God's people in wisdom, knowledge and understanding through training, to become adequate tools in God's hands for the achievement of His purposes on earth through Kingdom activities.
+                    </p>
+                </div>
+    
+                <!-- Vision Statement -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vision Statement</h3>
+                    <p>Preparing everyone for the Masters use, to live fulfilled and accomplish His purposes for the day of accountability. 
+                    </p>
+                </div>
+    
+                <!-- Core Values -->
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Core Values</h3>
+                    <ul>
+                        <li>Spirituality</li>
+                        <li>Excellence</li>
+                        <li>Discipline</li>
+                        <li>Integrity</li>
+                        <li>Competence</li>
+                        <li>Oneness</li>
+                    </ul>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+@include('layouts.footer') 

@@ -1,0 +1,112 @@
+.rectors-desk {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.rectors-desk .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rectors-desk h1 {
+    margin-bottom: 2px;
+    padding-left: 0px;
+    color: #333;
+    text-align: center;
+}
+
+.rector-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.rector-image {
+    flex: 0 0 300px;
+}
+
+.rector-image img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.rector-info {
+    text-align: center;
+}
+
+.rector-info h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.rector-info p {
+    color: #666;
+    font-style: italic;
+}
+
+.rector-message {
+    flex: 1;
+}
+
+.rector-message p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.rector-message ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.rector-message ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.rector-signature {
+    margin-top: 40px;
+}
+
+.rector-signature h4 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+/* Add media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .rectors-desk {
+        padding: 40px 0; /* Reduce padding on mobile */
+    }
+
+    .rector-content {
+        flex-direction: column; /* Stack items vertically */
+        gap: 30px;
+        align-items: center; /* Center items */
+    }
+
+    .rector-image {
+        flex: none;
+        width: 100%;
+        max-width: 300px; /* Maintain image size */
+    }
+
+    .rector-message {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rectors-desk {
+        padding: 30px 0;
+    }
+
+    .rector-content {
+        gap: 20px;
+    }
+
+    .rector-image {
+        max-width: 250px; /* Slightly smaller image on mobile */
+    }
+}

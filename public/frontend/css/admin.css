@@ -1,0 +1,200 @@
+.login-btn {
+    margin-top: 5px;
+}
+/* Admin Login Section */
+.admin-login-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    background: var(--light-bg);
+}
+
+.admin-login-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 20px;
+}
+
+.admin-login-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-icon {
+    font-size: 48px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.admin-header h2 {
+    color: var(--secondary-color);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.admin-header p {
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.admin-login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-login-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.admin-login-form input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.admin-login-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+    width: auto;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.admin-login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.admin-login-btn:hover {
+    background: var(--secondary-color);
+}
+
+.admin-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.admin-footer p {
+    margin-bottom: 10px;
+}
+
+.admin-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.admin-footer a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--secondary-color);
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .admin-login-box {
+        padding: 30px 20px;
+    }
+
+    .admin-header h2 {
+        font-size: 24px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .admin-login-section {
+        padding: 30px 0;
+    }
+
+    .admin-login-container {
+        padding: 0 15px;
+    }
+
+    .admin-login-box {
+        padding: 20px 15px;
+    }
+}

@@ -1,0 +1,148 @@
+.page-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/bg-header.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-hero .hero-content {
+    color: #fff;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #e0e0e0;
+}
+
+.breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb .current {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* History Section Styles */
+.history-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.history-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.history-section h2 {
+    color: #333;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    font-size: 2rem;
+}
+
+.history-content {
+    line-height: 1.8;
+    padding: 0 20px;
+}
+
+.history-content p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.history-content h2 {
+    font-size: 1.2rem;
+    color: #333;
+    padding: 0;
+}
+
+/* Mission, Vision & Values Section Styles */
+.mvv-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.mvv-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.mvv-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mvv-card:hover {
+    transform: translateY(-5px);
+}
+
+.mvv-icon {
+    font-size: 2.5rem;
+    color: #2c5282;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mvv-card h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mvv-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.mvv-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mvv-card ul li {
+    color: #555;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mvv-card ul li:last-child {
+    border-bottom: none;
+}
+

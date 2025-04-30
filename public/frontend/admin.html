@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Life College of Theology Abuja</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-clock"></i> Mon — Fri: 9am - 5pm</span>
+                <span><i class="fas fa-envelope"></i> abujalifecollege@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/head.png" alt="Institution Logo"></a>
+            </div>
+
+            <div id="showMenu">
+                <i class="fas fa-bars" id="showMenu"></i>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <div id="closeMenu">
+                    <i class="fas fa-times" id="closeMenu"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="admin.html" class="login-btn">Admin Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Admin Login Section -->
+    <section class="admin-login-section">
+        <div class="admin-login-container">
+            <div class="admin-login-box">
+                <div class="admin-header">
+                    <i class="fas fa-user-shield admin-icon"></i>
+                    <h2>Admin Login</h2>
+                    <p>Access the administrative dashboard</p>
+                </div>
+
+                <form id="adminLoginForm" class="admin-login-form">
+                    <div class="form-group">
+                        <label for="adminEmail">Email Address</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="adminEmail" name="adminEmail" required>
+                        </div>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminId">Admin ID</label>
+                        <div class="input-group">
+                            <i class="fas fa-id-card input-icon"></i>
+                            <input type="text" id="adminId" name="adminId" required>
+                        </div>
+                        <div class="error-message" id="idError">Please enter your admin ID</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="adminPassword" name="adminPassword" required>
+                            <i class="fas fa-eye-slash toggle-password"></i>
+                        </div>
+                        <div class="error-message" id="passwordError">Please enter your password</div>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="admin-login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+
+                <div class="admin-footer">
+                    <p>For security reasons, please log out when you're done</p>
+                    <p>Need help? Contact <a href="#">IT Support</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i>Foursquare Gospel Church, Behind Government Secondary School, Area 10, Garki, Abuja</p>
+                <p><i class="fas fa-phone"></i> +234 813 451 8174</p>
+                <p><i class="fas fa-envelope"></i> abujalifecollege@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fas fa-chevron-right"></i><a href="admission.html">Admission</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="faculty.html">Faculty</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="library.html">Library</a></li>
+                    <li><i class="fas fa-chevron-right"></i><a href="news.html">News</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div class="copyright">
+                    &copy; 2025 Life College of Theology. All rights reserved.
+                </div>
+                <div class="designer">
+                    Designed by <a href="#">Emerging Ways Global</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>

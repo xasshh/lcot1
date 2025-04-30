@@ -1,0 +1,18 @@
+/* public/css/custom-admin.css */
+
+.main-header {
+    background-color: red !important;
+}
+
+.main-sidebar {
+    background-color: red !important;
+}
+
+.sidebar-menu > li > a {
+    color: #fff;
+}
+
+.sidebar-menu > li.active > a {
+    background-color: red !important;
+    color: #fff !important;
+}

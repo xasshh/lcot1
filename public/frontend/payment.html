@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,">
+    <title>Life College of Theology Abuja</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-clock"></i> Mon — Fri: 9am - 5pm</span>
+                <span><i class="fas fa-envelope"></i> abujalifecollege@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/head.png" alt="Institution Logo"></a>
+            </div>
+
+            <div id="showMenu">
+                <i class="fas fa-bars" id="showMenu"></i>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <div id="closeMenu">
+                    <i class="fas fa-times" id="closeMenu"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Introduction <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="history.html">Our History</a>
+                            <a href="acred.html">Aff./Acred./Memb</a>
+                            <a href="gallery.html">Gallery</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Administration <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="rector's-desk.html">From the Rector's Desk</a>
+                            <a href="governing-council.html">Governing Council</a>
+                            <a href="management.html">Management Team</a>
+                            <a href="center.html">Center Coordinators</a>
+                            <a href="faculty.html">Faculty Members</a>
+                            <a href="non-teaching-staff.html">Non-Teaching Staff</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Registration <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content registration-menu">
+                            <a href="#" class="menu-item">How To Apply</a>
+                            
+                            <div class="program-section">
+                                <h4>Our Programmes (scroll down to view more):</h4>
+                                
+                                <div class="program-category">
+                                    <h5 class="program-title">Executive</h5>
+                                    <ul>
+                                        <li><a href="#">Bachelor of Theology</a></li>
+                                        <li><a href="#">Master of Art in Theology</a></li>
+                                    </ul>
+                                </div>
+                    
+                                <div class="program-category">
+                                    <h5 class="program-title">Full-Time - Undergraduate</h5>
+                                    <ul>
+                                        <li><a href="#">Bachelor of Theology</a></li>
+                                        <li><a href="#">Certificate in Music</a></li>
+                                        <li><a href="#">Diploma in Music</a></li>
+                                        <li><a href="#">Diploma in Theology</a></li>
+                                    </ul>
+                                </div>
+                    
+                                <div class="program-category">
+                                    <h5 class="program-title">Full-Time - Post Graduate</h5>
+                                    <ul>
+                                        <li><a href="#">Master of Art in Theology</a></li>
+                                        <li><a href="#">Doctor of Ministry</a></li>
+                                        <li><a href="#">Doctor of Philosophy</a></li>
+                                    </ul>
+                                </div>
+                                <a href="reference.html" class="menu-item">Reference Form</a>
+                            </div>
+                    
+                            
+                        </div>
+                    </li>
+
+
+                    <li><a href="#contact">FAQs</a></li>
+                    <li><a href="login.html" class="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="checkout">
+        <div class="container2">
+            <h2>Customer Information</h2>
+            <form class="checkout-form" id=".checkout-form">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <h3>Billing Details</h3>
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <h3>Payment</h3>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number *</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date *</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV *</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+                <button type="submit" class="submit-btn" id="payNow" disabled>Pay Now</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.checkout-form');
+            const payNowButton = document.getElementById('payNow');
+            const inputs = form.querySelectorAll('input[required]');
+    
+            function checkFormCompletion() {
+                let allFilled = true;
+                inputs.forEach(input => {
+                    if (input.value.trim() === '') {
+                        allFilled = false;
+                    }
+                });
+                payNowButton.disabled = !allFilled;
+            }
+    
+            inputs.forEach(input => {
+                input.addEventListener('input', checkFormCompletion);
+            });
+    
+            checkFormCompletion(); // Initial check
+        });
+
+       
+
+    payNowButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        let handler = PaystackPop.setup({
+            key: 'pk_test_232263e4309600125b35da4bfa9d4246795c3ac2', // Replace with your public key
+            email: document.getElementById('email').value,
+            amount: document.getElementById('amount').value * 100, // Amount in kobo
+            currency: "NGN",
+            callback: function(response) {
+                alert('Payment successful. Transaction ref is ' + response.reference);
+            },
+            onClose: function() {
+                alert('Transaction was not completed, window closed.');
+            }
+        });
+        handler.openIframe();
+    });
+
+
+    </script>
+    
+</body>
+</html>
