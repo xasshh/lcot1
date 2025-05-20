@@ -100,7 +100,7 @@
         <!-- Main Content -->
         <div class="flex-1 p-8">
             <!-- Welcome Header -->
-            <div class="bg-indigo-600 text-black p-6 rounded-2xl shadow-md mb-8">
+            <div class="bg-black-600 text-black p-6 rounded-2xl shadow-md mb-8">
                 <h1 class="text-4xl font-bold">Welcome, {{ auth()->user()->name }}</h1>
                 <p class="text-lg mt-1 opacity-90">Here's your current academic overview.</p>
             </div>
