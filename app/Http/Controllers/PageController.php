@@ -16,5 +16,6 @@ class PageController extends Controller
     public function payment() { return view('payment'); }
     public function rectorsDesk() { return view('rectors-desk'); }
     public function reference() { return view('reference'); }
+    public function governingCouncil() { return view('governing-council'); }
 }
 

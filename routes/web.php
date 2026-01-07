@@ -29,6 +29,7 @@ Route::get('/non-teaching-staff', [PageController::class, 'nonTeachingStaff'])->
 Route::get('/payment', [PageController::class, 'payment'])->name('payment');
 Route::get('/rectors-desk', [PageController::class, 'rectorsDesk'])->name('rectorsDesk');
 Route::get('/reference', [PageController::class, 'reference'])->name('reference');
+Route::get('/governing-council', [PageController::class, 'governingCouncil'])->name('governingCouncil');
 Route::get('/acred', [AcredController::class, 'index'])->name('acred');
 
 

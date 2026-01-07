@@ -28,26 +28,33 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'matric_number' => ['required', 'string', 'max:255', 'unique:users'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+  public function store(Request $request): RedirectResponse
+{
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        'programCenter' => 'required',
+        'programTaken' => 'required',
+        'yearAdmitted' => 'required',
+        'full_matric_number' => ['required', 'string', 'unique:users,matric_number'],
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'matric_number' => $request->matric_number,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'matric_number' => $request->full_matric_number,
+        'program_center' => $request->programCenter,
+        'program_taken' => $request->programTaken,
+        'year_admitted' => $request->yearAdmitted,
+    ]);
 
-        event(new Registered($user));
+    event(new Registered($user));
 
-        Auth::login($user);
+    Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
-    }
+    return redirect(RouteServiceProvider::HOME);
+}
+
 }

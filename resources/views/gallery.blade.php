@@ -17,49 +17,49 @@
     <h2 class="gallery-title">Our Gallery</h2>
     <div class="gallery-grid">
         <div class="gallery-item">
-            <img src="images/gallery/gallery1.jpeg" alt="Gallery Image 1">
+            <img src=" {{ asset('frontend/images/gallery/gallery1.jpeg ') }}" alt="Gallery Image 1">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery2.jpeg" alt="Gallery Image 2">
+            <img src="{{ asset('frontend/images/gallery/gallery2.jpeg ') }}" alt="Gallery Image 2">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <!-- Add more images as needed -->
     </div>
     <div class="gallery-grid">
         <div class="gallery-item">
-            <img src="images/gallery/gallery1.jpeg" alt="Gallery Image 1">
+            <img src="{{ asset('frontend/images/gallery/gallery1.jpeg ') }}" alt="Gallery Image 1">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery2.jpeg" alt="Gallery Image 2">
+            <img src="{{ asset('frontend/images/gallery/gallery2.jpeg ') }}" alt="Gallery Image 2">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <div class="gallery-item">
-            <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3">
+            <img src="{{ asset('frontend/images/gallery/gallery3.jpeg ') }}" alt="Gallery Image 3">
         </div>
         <!-- Add more images as needed -->
     </div>

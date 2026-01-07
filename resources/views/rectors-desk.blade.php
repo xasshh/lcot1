@@ -5,7 +5,7 @@
         <h1>Rector's Desk</h1>
         <div class="rector-content">
             <div class="rector-image">
-                <img src="images/rector.jpg" alt="Rev. Dr. Kunle Ibikunle">
+                <img src="{{ asset('frontend/images/rector.jpg') }}" alt="Rev. Dr. Kunle Ibikunle">
             </div>
             <div class="rector-message">
                 <p>It is my great pleasure and honour to welcome you to LIFE College of Theology, Abuja. 'A place where to Study Yourself Approved, A workman that needed not to be Ashamed of God's calling.'</p>

@@ -28,6 +28,9 @@ class User extends Authenticatable
     'tuition_balance',
     'payment_history',
         'matric_number',
+    'program_center',
+    'program_taken',
+    'year_admitted',
     ];
 
     /**

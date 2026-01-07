@@ -10,13 +10,13 @@
                     <h2>Student Login</h2>
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email Address')" />
             <x-text-input id="email"  class="form-group" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
         
         <div>
-            <x-input-label for="matric_number" :value="__('Matric Number')" />
+            <x-input-label for="matric_number" :value="__('Registration Number')" />
             <x-text-input id="matric_number" class="form-group" type="text" name="matric_number" :value="old('matric_number')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('matric_number')" class="mt-2" />
         </div>

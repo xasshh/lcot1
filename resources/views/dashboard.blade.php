@@ -20,7 +20,7 @@
         }
 
         table th {
-            background: linear-gradient(to right, #6366f1, #818cf8);
+            background: linear-gradient(to right, #f76f6f, #f70404);
             color: white;
         }
 
@@ -30,7 +30,7 @@
         }
 
         img.rounded-full {
-            border: 3px solid #6366f1;
+            border: 3px solid #f0202b;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -52,7 +52,7 @@
 
         a:hover {
             text-decoration: none;
-            color: #4338ca;
+            color: #ca3844;
         }
 
         .progress-bar {
@@ -78,6 +78,7 @@
             position: sticky;
             top: 0;
             height: 100vh;
+            background-color: #f70404;
         }
 
     </style>
@@ -89,10 +90,7 @@
             <div class="text-3xl font-bold mb-10 tracking-wide">Student Portal</div>
             <nav class="flex flex-col gap-4">
                 <a href="{{ route('home') }}" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">🏠 Home</a>
-                <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">👤 Profile</a>
                 <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">📚 Courses</a>
-                <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">💳 Payments</a>
-                <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">🗓 Timetable</a>
                 <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">⚙️ Settings</a>
             </nav>
         </aside>
@@ -136,12 +134,12 @@
                 </div>
 
                 <!-- Tuition Info -->
-                <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                {{-- <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
                     <h4 class="text-lg font-semibold text-gray-700 mb-2">Fees & Payments</h4>
                     <p>Balance: <span class="text-2xl font-bold text-red-600">₦{{ number_format(auth()->user()->tuition_balance, 2) }}</span></p>
                     <a href="#" class="block mt-3 text-sm text-white bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-700 transition w-fit">Pay Now</a>
                     <a href="#" class="block text-sm text-gray-500 hover:underline mt-1">Download Receipt</a>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Courses Table -->

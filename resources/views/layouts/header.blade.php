@@ -61,7 +61,7 @@
                         <a href="#">Administration <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <a href="{{ route('rectorsDesk') }}">From the Rector's Desk</a>
-                            <a href="">Governing Council</a>
+                            <a href="{{ route('governingCouncil') }}">Governing Council</a>
                             <a href="{{ route('management') }}">Management Team</a>
                             <a href="{{ route('center') }}">Center Coordinators</a>
                             <a href="{{ route('faculty') }}">Faculty Members</a>
