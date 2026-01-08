@@ -86,19 +86,19 @@
     </head>
     <div class="flex min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-200">
         <!-- Sidebar -->
-        <aside class="w-80 bg-indigo-800 text-black flex flex-col sidebar p-6 shadow-lg">
+        <aside class="w-80  text-black flex flex-col sidebar p-6 shadow-lg">
             <div class="text-3xl font-bold mb-10 tracking-wide">Student Portal</div>
             <nav class="flex flex-col gap-4">
-                <a href="{{ route('home') }}" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">🏠 Home</a>
-                <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">📚 Courses</a>
-                <a href="#" class="flex items-center gap-2 hover:bg-indigo-700 p-3 rounded-lg transition-all font-medium">⚙️ Settings</a>
+                <a href="{{ route('home') }}" class="flex items-center gap-2  p-3 rounded-lg transition-all font-medium">🏠 Home</a>
+                <a href="#" class="flex items-center gap-2 0 p-3 rounded-lg transition-all font-medium">📚 Courses</a>
+                <a href="#" class="flex items-center gap-2  p-3 rounded-lg transition-all font-medium">⚙️ Settings</a>
             </nav>
         </aside>
 
         <!-- Main Content -->
         <div class="flex-1 p-8">
             <!-- Welcome Header -->
-            <div class="bg-indigo-600 text-black p-6 rounded-2xl shadow-md mb-8">
+            <div class="bg-red-600 text-black p-6 rounded-2xl shadow-md mb-8">
                 <h1 class="text-4xl font-bold">Welcome, {{ auth()->user()->name }}</h1>
                 <p class="text-lg mt-1 opacity-90">Here's your current academic overview.</p>
             </div>
