@@ -120,6 +120,5 @@
                 @endauth
                                 </ul>
             </div>
-            <i class="fas fa-bars" id="showMenu"></i>
         </nav>
     </header>
