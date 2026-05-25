@@ -1,0 +1,106 @@
+.page-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/bg-header.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: clamp(200px, 25vh, 300px);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-hero .hero-content {
+    color: #fff;
+}
+
+.page-hero h1 {
+    font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
+    margin-bottom: clamp(0.75rem, 1.5vw, 0.9375rem);
+    font-weight: 700;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #e0e0e0;
+}
+
+.breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb .current {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gallery {
+    padding: clamp(1rem, 2vw, 1.25rem);
+    max-width: min(1200px, 95%);
+    margin: 0 auto;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw + 0.5rem, 2em);
+    margin-bottom: clamp(1rem, 2vw, 1.25rem);
+    color: #333;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: clamp(0.9375rem, 1.5vw, 1rem);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+        gap: clamp(0.75rem, 1.5vw, 0.9375rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
