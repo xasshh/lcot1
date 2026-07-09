@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Install dependencies
-composer install           # composer.json pins platform PHP to 8.4
+composer install           # composer.json pins platform PHP to 8.2 (the live server's ceiling; do not raise without checking the host)
 npm install
 
 # Environment setup
