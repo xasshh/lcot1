@@ -301,7 +301,19 @@
 
             {{-- ── Course registration prompt ── --}}
             @php $currentLevel = auth()->user()->currentLevel(); @endphp
-            @if($currentLevel && ! auth()->user()->hasRegisteredCoursesForLevel($currentLevel))
+            @if(auth()->user()->role === 'student' && ! $currentLevel)
+                <div class="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="text-sm font-bold text-amber-800">Choose your programme</p>
+                        <p class="text-xs text-amber-700 mt-0.5">Select your programme track and register your courses to complete your enrolment.</p>
+                    </div>
+                    <a href="{{ route('courses.register') }}"
+                       class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-bold text-white rounded-lg px-4 py-2.5 transition-opacity hover:opacity-90"
+                       style="background:#dc2626;">
+                        Choose Programme &amp; Register
+                    </a>
+                </div>
+            @elseif($currentLevel && ! auth()->user()->hasRegisteredCoursesForLevel($currentLevel))
                 <div class="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 flex flex-wrap items-center justify-between gap-3">
                     <div>
                         <p class="text-sm font-bold text-amber-800">Course registration pending</p>
