@@ -27,7 +27,7 @@
         @endif
     </form>
 
-    <div style="display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start;">
+    <div class="adm-split">
 
         {{-- Course list --}}
         <div class="adm-card">

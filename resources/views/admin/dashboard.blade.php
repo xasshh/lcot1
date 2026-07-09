@@ -39,7 +39,7 @@
     </div>
 
     {{-- Quick links --}}
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+    <div class="adm-grid-3">
         <a href="{{ route('admin.students.index') }}" class="adm-card"
            style="text-decoration:none;padding:1.5rem;display:flex;flex-direction:column;gap:0.5rem;">
             <div style="font-weight:700;color:#1e293b;font-size:0.95rem;">Manage Students</div>

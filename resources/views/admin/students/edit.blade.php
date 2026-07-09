@@ -15,7 +15,7 @@
             @csrf
             @method('PUT')
 
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+            <div class="adm-grid-2">
 
                 {{-- Personal Info --}}
                 <div class="adm-card">
@@ -90,7 +90,7 @@
                                    class="adm-input" placeholder="e.g. 200">
                             @error('level')<div class="adm-error-text">{{ $message }}</div>@enderror
                         </div>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                        <div class="adm-grid-2" style="gap:0.75rem;">
                             <div class="adm-form-group">
                                 <label class="adm-label">GPA</label>
                                 <input type="number" name="gpa"
@@ -126,7 +126,7 @@
                         @if($courses->isEmpty())
                             <p style="color:#94a3b8;font-size:0.85rem;">No courses available. <a href="{{ route('admin.courses.index') }}" style="color:#f59e0b;">Add courses first.</a></p>
                         @else
-                            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;">
+                            <div class="adm-grid-3" style="gap:0.5rem;">
                                 @foreach($courses as $course)
                                     <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;border:1px solid #e2e8f0;border-radius:0.5rem;cursor:pointer;font-size:0.82rem;color:#374151;background:{{ in_array($course->id, $assignedIds) ? '#fef3c7' : '#fff' }};">
                                         <input type="checkbox" name="course_ids[]" value="{{ $course->id }}"

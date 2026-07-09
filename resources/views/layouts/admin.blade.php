@@ -268,6 +268,58 @@
         }
         .adm-pagination .active { background: #dc2626; color: #fff; border-color: #dc2626; font-weight: 700; }
 
+        /* ── Responsive layout helpers ── */
+        .adm-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .adm-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .adm-split  { display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem; align-items: start; }
+
+        .adm-burger {
+            display: none;
+            background: none;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 0.45rem 0.6rem;
+            cursor: pointer;
+            color: #475569;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .adm-burger svg { width: 1.15rem; height: 1.15rem; display: block; }
+        .adm-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.55); z-index: 65; }
+
+        @media (max-width: 1024px) {
+            .adm-sidebar {
+                position: fixed;
+                top: 0; left: 0; bottom: 0;
+                z-index: 70;
+                width: 270px;
+                min-height: 0;
+                overflow-y: auto;
+                transform: translateX(-105%);
+                transition: transform 0.25s ease;
+            }
+            .adm-sidebar.open { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,0.35); }
+            .adm-overlay.show { display: block; }
+            .adm-burger { display: inline-flex; align-items: center; }
+            .adm-split { grid-template-columns: 1fr; }
+            .adm-content { padding: 1.25rem; }
+        }
+        @media (max-width: 768px) {
+            .adm-grid-2 { grid-template-columns: 1fr; }
+            .adm-grid-3 { grid-template-columns: 1fr 1fr; }
+            .adm-stat-grid { grid-template-columns: 1fr 1fr; }
+            .adm-topbar { padding: 0.75rem 1rem; }
+            .adm-content { padding: 1rem; }
+            .adm-card-header { padding: 0.875rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+            .adm-card-body { padding: 1rem; }
+        }
+        @media (max-width: 560px) {
+            .adm-grid-3 { grid-template-columns: 1fr; }
+            .adm-stat-grid { grid-template-columns: 1fr; }
+            .adm-topbar-date { display: none; }
+            .adm-page-title { font-size: 0.95rem; }
+        }
+
         /* Modal */
         .adm-modal-overlay {
             position: fixed; inset: 0;
@@ -304,7 +356,8 @@
 
     {{-- ===== SIDEBAR ===== --}}
     @php $seg = request()->segment(2) ?? ''; @endphp
-    <aside class="adm-sidebar">
+    <div class="adm-overlay" id="admOverlay" onclick="admToggleSidebar(false)"></div>
+    <aside class="adm-sidebar" id="admSidebar">
         <div class="adm-brand">
             <div class="adm-brand-title">LCOT Admin</div>
             <div class="adm-brand-sub">Life College of Theology</div>
@@ -402,12 +455,19 @@
     {{-- ===== MAIN ===== --}}
     <div class="adm-main">
         <div class="adm-topbar">
-            <div>
-                <div class="adm-page-title">{{ $title ?? 'Dashboard' }}</div>
-                <div class="adm-breadcrumb">Admin Panel &rsaquo; {{ $title ?? 'Dashboard' }}</div>
+            <div style="display:flex;align-items:center;min-width:0;">
+                <button type="button" class="adm-burger" onclick="admToggleSidebar()" aria-label="Open menu">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <div style="min-width:0;">
+                    <div class="adm-page-title">{{ $title ?? 'Dashboard' }}</div>
+                    <div class="adm-breadcrumb">Admin Panel &rsaquo; {{ $title ?? 'Dashboard' }}</div>
+                </div>
             </div>
             <div style="display:flex;align-items:center;gap:0.75rem;">
-                <span style="font-size:0.78rem;color:#64748b;">{{ now()->format('D, d M Y') }}</span>
+                <span class="adm-topbar-date" style="font-size:0.78rem;color:#64748b;">{{ now()->format('D, d M Y') }}</span>
             </div>
         </div>
         <div class="adm-content">
@@ -432,5 +492,14 @@
     </div>
 
 </div>
+<script>
+function admToggleSidebar(force) {
+    var sb = document.getElementById('admSidebar');
+    var ov = document.getElementById('admOverlay');
+    var open = typeof force === 'boolean' ? force : !sb.classList.contains('open');
+    sb.classList.toggle('open', open);
+    ov.classList.toggle('show', open);
+}
+</script>
 </body>
 </html>
