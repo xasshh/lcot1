@@ -60,12 +60,57 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     public function courses()
     {
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Course::class)->withPivot('level');
     }
 
     public function payments()
     {
         return $this->hasMany(Payment::class);
+    }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
+
+    /**
+     * Canonical program key (bachelor | special_executive | masters), or null
+     * for legacy accounts that pre-date program tracks.
+     */
+    public function programKey(): ?string
+    {
+        return array_key_exists($this->program, Course::PROGRAMS) ? $this->program : null;
+    }
+
+    public function programLabel(): ?string
+    {
+        $key = $this->programKey();
+
+        return $key ? Course::PROGRAMS[$key] : $this->program_taken;
+    }
+
+    /**
+     * The level the student is currently at, defaulting to the first level
+     * of their program.
+     */
+    public function currentLevel(): ?string
+    {
+        if ($this->level) {
+            return (string) $this->level;
+        }
+
+        $key = $this->programKey();
+
+        return $key ? Course::PROGRAM_LEVELS[$key][0] : null;
+    }
+
+    public function hasRegisteredCoursesForLevel(?string $level): bool
+    {
+        if (! $level) {
+            return false;
+        }
+
+        return $this->courses()->wherePivot('level', $level)->exists();
     }
 
     public function isSuperAdmin(): bool

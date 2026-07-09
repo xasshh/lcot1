@@ -5,12 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::withCount('students')->orderBy('title')->paginate(20);
+        $query = Course::withCount('students');
+
+        if ($request->filled('program')) {
+            $query->where('program', $request->program);
+        }
+        if ($request->filled('level')) {
+            $query->where('level', $request->level);
+        }
+
+        $courses = $query->orderBy('program')->orderBy('level')->orderBy('title')
+            ->paginate(20)->withQueryString();
+
         return view('admin.courses.index', compact('courses'));
     }
 
@@ -18,10 +30,15 @@ class CourseController extends Controller
     {
         $data = $request->validate([
             'title'      => 'required|string|max:255',
-            'code'       => 'required|string|max:50|unique:courses,code',
+            'code'       => 'nullable|string|max:50',
             'instructor' => 'nullable|string|max:255',
-            'unit'       => 'required|integer|min:1|max:6',
+            'unit'       => 'required|numeric|min:0.5|max:6',
+            'program'    => ['nullable', Rule::in(array_keys(Course::PROGRAMS))],
+            'level'      => 'nullable|string|max:10',
+            'semester'   => ['nullable', Rule::in(Course::SEMESTER_ORDER)],
         ]);
+
+        $data['code'] = $data['code'] ?? '';
 
         Course::create($data);
 
@@ -33,10 +50,15 @@ class CourseController extends Controller
     {
         $data = $request->validate([
             'title'      => 'required|string|max:255',
-            'code'       => 'required|string|max:50|unique:courses,code,' . $course->id,
+            'code'       => 'nullable|string|max:50',
             'instructor' => 'nullable|string|max:255',
-            'unit'       => 'required|integer|min:1|max:6',
+            'unit'       => 'required|numeric|min:0.5|max:6',
+            'program'    => ['nullable', Rule::in(array_keys(Course::PROGRAMS))],
+            'level'      => 'nullable|string|max:10',
+            'semester'   => ['nullable', Rule::in(Course::SEMESTER_ORDER)],
         ]);
+
+        $data['code'] = $data['code'] ?? '';
 
         $course->update($data);
 

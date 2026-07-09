@@ -6,7 +6,7 @@
         <h2>Create Account</h2>
 
         @if ($errors->any())
-            <div style="margin-bottom:1.25rem;padding:0.9rem 1rem;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.35);border-radius:0.5rem;font-size:0.82rem;color:#fca5a5;">
+            <div style="margin-bottom:1.25rem;padding:0.9rem 1rem;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.35);border-radius:0.5rem;font-size:0.82rem;color:#dc2626;">
                 <ul style="margin:0;padding:0 0 0 1.25rem;">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -18,13 +18,19 @@
         {{-- Name --}}
         <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" value="{{ old('name') }}" required>
+            @error('name')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Email --}}
         <div class="form-group">
             <label>Email</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" value="{{ old('email') }}" required>
+            @error('email')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Program Center --}}
@@ -47,15 +53,23 @@
                 <option value="suleja">Suleja Center</option>
                 <option value="wuse">Wuse Center</option>
             </select>
+            @error('programCenter')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
-        {{-- Program Taken --}}
+        {{-- Programme --}}
         <div class="form-group">
-            <label>Program Taken</label>
-            <select id="programTaken" name="programTaken" required
-                    style="opacity:0.45;pointer-events:none;cursor:not-allowed;">
-                <option value="">Select Program Center first</option>
+            <label>Programme</label>
+            <select id="programTaken" name="programTaken" required>
+                <option value="">Select Programme</option>
+                <option value="bachelor" {{ old('programTaken') === 'bachelor' ? 'selected' : '' }}>Bachelor's Degree Programme</option>
+                <option value="special_executive" {{ old('programTaken') === 'special_executive' ? 'selected' : '' }}>Special Executive Bachelor's Degree</option>
+                <option value="masters" {{ old('programTaken') === 'masters' ? 'selected' : '' }}>Master's Degree Programme</option>
             </select>
+            @error('programTaken')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Year Admitted --}}
@@ -67,6 +81,9 @@
                     <option value="{{ $y }}">{{ $y }}</option>
                 @endfor
             </select>
+            @error('yearAdmitted')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Matric Number --}}
@@ -79,6 +96,12 @@
 
             {{-- Hidden field sent to backend --}}
             <input type="hidden" name="full_matric_number" id="fullMatricNumber">
+            @error('matric_suffix')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
+            @error('full_matric_number')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Password --}}
@@ -90,6 +113,9 @@
                     <i class="fas fa-eye"></i>
                 </button>
             </div>
+            @error('password')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- Confirm Password --}}
@@ -101,6 +127,9 @@
                     <i class="fas fa-eye"></i>
                 </button>
             </div>
+            @error('password_confirmation')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
         </div>
 
         <button type="submit" class="submit-btn">Create Account</button>
@@ -110,21 +139,10 @@
         </div>
     </div>
     <script>
-const programCenterMapping = {
-    'abuja': ['M.th'],
-    'akwanga': ['CCM'],
-    'anyigba': ['B.th', 'CCM', 'Diploma'],
-    'asokoro': ['CCM'],
-    'gidanmangoro': ['CCM'],
-    'idah': ['B.th', 'CCM', 'Diploma'],
-    'jalingo': ['B.th', 'CCM', 'Diploma'],
-    'kubwa': ['B.th', 'CCM', 'Diploma'],
-    'makurdi': ['CCM'],
-    'minna': ['B.th', 'CCM', 'Diploma'],
-    'nyanya': ['B.th', 'CCM', 'Diploma'],
-    'otukpo': ['B.th', 'Diploma'],
-    'suleja': ['CCM'],
-    'wuse': ['CCM']
+const programAbbreviations = {
+    'bachelor': 'BDP',
+    'special_executive': 'SEB',
+    'masters': 'MDP'
 };
 
 function updateMatricPrefix() {
@@ -142,7 +160,7 @@ function updateMatricPrefix() {
         prefix += text.substring(0,2).toUpperCase() + '/';
     } else prefix += '--/';
 
-    prefix += program.value ? program.value + '/' : '--/';
+    prefix += program.value ? programAbbreviations[program.value] + '/' : '--/';
     prefix += year.value ? year.value + '/' : '----/';
 
     prefixSpan.textContent = prefix;
@@ -150,35 +168,11 @@ function updateMatricPrefix() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const center = document.getElementById('programCenter');
-    const program = document.getElementById('programTaken');
-    const year = document.getElementById('yearAdmitted');
-
-    center.addEventListener('change', () => {
-        program.innerHTML = '<option value="">Select Program Taken</option>';
-
-        if (center.value) {
-            program.style.opacity = '';
-            program.style.pointerEvents = '';
-            program.style.cursor = '';
-            (programCenterMapping[center.value] || []).forEach(p => {
-                const opt = document.createElement('option');
-                opt.value = p;
-                opt.textContent = p;
-                program.appendChild(opt);
-            });
-        } else {
-            program.style.opacity = '0.45';
-            program.style.pointerEvents = 'none';
-            program.style.cursor = 'not-allowed';
-        }
-
-        updateMatricPrefix();
+    ['programCenter', 'programTaken', 'yearAdmitted'].forEach(id => {
+        document.getElementById(id).addEventListener('change', updateMatricPrefix);
     });
-
-    program.addEventListener('change', updateMatricPrefix);
-    year.addEventListener('change', updateMatricPrefix);
     document.querySelector('[name="matric_suffix"]').addEventListener('input', updateMatricPrefix);
+    updateMatricPrefix();
 });
 </script>
 

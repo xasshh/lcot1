@@ -100,14 +100,14 @@ nav {
     padding: 0;
 }
 
-/* Ensure dropdown doesn't get cut off */
-.nav-links ul li {
+/* Ensure dropdown doesn't get cut off — top-level nav items only */
+.nav-links > ul > li {
     display: inline-block;
     position: relative;
     padding: 15px 0;
 }
 
-.nav-links ul li a {
+.nav-links > ul > li > a {
     color: var(--text-color);
     text-decoration: none;
     font-size: clamp(0.8125rem, 0.85rem + 0.2vw, 0.875rem);
@@ -118,7 +118,7 @@ nav {
     transition: color 0.3s;
 }
 
-.nav-links ul li a:hover {
+.nav-links > ul > li > a:hover {
     color: var(--primary-color);
 }
 
@@ -196,8 +196,8 @@ nav {
     display: block;
 }
 
-/* Animation for dropdown arrow */
-.dropdown:hover i.fa-chevron-down {
+/* Animation for dropdown arrow — main nav link only */
+.dropdown:hover > a i.fa-chevron-down {
     transform: rotate(180deg);
 }
 
@@ -246,79 +246,133 @@ body.menu-open #showMenu i {
 
 
 .registration-menu {
-    width: min(350px, 90vw);
+    width: 300px;
+    min-width: 300px;
+    max-width: 90vw;
     background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: clamp(0.5rem, 1vw, 0.625rem) 0;
-    max-height: 80vh;
-    overflow-y: auto;
-    text-align: left;
-}
-
-.registration-menu .menu-item {
-    color: #333;
-    padding: 12px 20px;
-    display: block;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    font-size: 14px;
-}
-
-.registration-menu .menu-item:hover {
-    background-color: #f8f9fa;
-}
-
-.program-section {
-    padding: 10px 20px;
-    text-align: left;
-}
-
-.program-section h4 {
-    color: #333;
-    font-size: 14px;
-    margin: 0 0 15px 0;
-    font-weight: normal;
-    text-align: left;
-}
-
-.program-category {
-    margin-bottom: 20px;
-}
-
-.program-title {
-    color: #f44336; /* Red color matching the website */
-    font-size: 14px;
-    margin: 0 0 8px 0;
-    font-weight: normal;
-    text-align: left;
-}
-
-.program-category ul {
-    list-style: none;
-    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     padding: 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.registration-menu::before {
+    display: none;
+}
+
+/* Override global dropdown link styles inside programmes menu */
+.registration-menu a {
+    text-align: left !important;
+    justify-content: space-between !important;
+}
+
+.registration-menu .programmes-heading {
+    margin: 0;
+    padding: 14px 18px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+    border-bottom: 1px solid #eee;
+}
+
+.registration-menu .programmes-list {
     display: flex;
     flex-direction: column;
-}
-
-.program-category ul li {
-    margin: 5px 0;
-    padding: 0;
-}
-
-.program-category ul li a {
-    color: #333;
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.3s;
-    display: block;
-    padding: 3px 0;
-}
-
-.program-category ul li a:hover {
-    color: #f44336; /* Red color on hover */
     width: 100%;
+}
+
+.registration-menu .programmes-group {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.registration-menu .programmes-group:last-child {
+    border-bottom: none;
+}
+
+.registration-menu .programmes-group-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 18px !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    color: #222 !important;
+    background: #fff;
+    text-decoration: none;
+    line-height: 1.4;
+    white-space: normal;
+    transition: background-color 0.2s, color 0.2s;
+    box-sizing: border-box;
+}
+
+.registration-menu .programmes-group-toggle i {
+    font-size: 11px;
+    color: #999;
+    flex-shrink: 0;
+    margin-left: 8px;
+    transition: transform 0.25s ease, color 0.2s;
+}
+
+.registration-menu .programmes-group-panel {
+    display: none;
+    background: #f8f9fb;
+    border-top: 1px solid #eee;
+    padding: 6px 0 10px;
+}
+
+.registration-menu .programmes-group.is-open .programmes-group-toggle {
+    color: var(--secondary-color) !important;
+    background: #fafafa;
+}
+
+.registration-menu .programmes-group.is-open .programmes-group-toggle i {
+    color: var(--secondary-color);
+    transform: rotate(180deg);
+}
+
+.registration-menu .programmes-group.is-open .programmes-group-panel {
+    display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .registration-menu .programmes-group:hover .programmes-group-toggle {
+        color: var(--secondary-color) !important;
+        background: #fafafa;
+    }
+
+    .registration-menu .programmes-group:hover .programmes-group-toggle i {
+        color: var(--secondary-color);
+        transform: rotate(180deg);
+    }
+
+    .registration-menu .programmes-group:hover .programmes-group-panel {
+        display: block;
+    }
+}
+
+.registration-menu .programmes-group-panel a {
+    display: block;
+    padding: 10px 18px 10px 24px !important;
+    font-size: 13px !important;
+    font-weight: 400;
+    color: #555 !important;
+    line-height: 1.45;
+    white-space: normal;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.registration-menu .programmes-group-panel a:hover {
+    background: #fff;
+    color: var(--secondary-color) !important;
+    border-left-color: var(--secondary-color);
 }
 
 /* Scrollbar Styling */
@@ -1120,12 +1174,12 @@ html {
         align-items: flex-start;
     }
 
-    .nav-links ul li {
+    .nav-links > ul > li {
         width: 100%;
         padding: clamp(0.5rem, 1vw, 0.625rem) 0;
     }
 
-    .nav-links ul li a {
+    .nav-links > ul > li > a {
         padding: clamp(0.5rem, 1vw, 0.625rem) 0;
         font-size: clamp(0.9375rem, 1.5vw + 0.5rem, 1rem);
         justify-content: flex-start;
@@ -1238,7 +1292,19 @@ html {
 
     /* Registration Menu */
     .registration-menu {
-        width: min(100%, 300px);
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+    }
+
+    .registration-menu .programmes-group-toggle {
+        padding: 13px 16px !important;
+        font-size: 13px !important;
+    }
+
+    .registration-menu .programmes-group-panel a {
+        padding: 10px 16px 10px 22px !important;
+        font-size: 12px !important;
     }
 
     /* Buttons */

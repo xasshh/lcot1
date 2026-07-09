@@ -20,6 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <!-- Top Bar -->
@@ -36,7 +37,7 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="index.html"><img src="{{ asset('frontend/images/head.png') }}" alt="Institution Logo"></a>
+                <a href="{{ route('home') }}"><img src="{{ asset('frontend/images/head.png') }}" alt="Institution Logo"></a>
             </div>
 
             <div id="showMenu">
@@ -53,6 +54,7 @@
                         <a href="#">Introduction <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
                             <a href="{{ route('history') }}">Our History</a>
+                         <a href="{{ route('mission-vision-values') }}">Mission./Vision./Values</a>
                             <a href="{{ route('acred') }}">Aff./Acred./Memb</a>
                             <a href="{{ route('gallery') }}">Gallery</a>
                         </div>
@@ -60,7 +62,6 @@
                     <li class="dropdown">
                         <a href="#">Administration <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content">
-                            <a href="{{ route('rectorsDesk') }}">From the Rector's Desk</a>
                             <a href="{{ route('governingCouncil') }}">Governing Council</a>
                             <a href="{{ route('management') }}">Management Team</a>
                             <a href="{{ route('center') }}">Center Coordinators</a>
@@ -70,48 +71,49 @@
                     </li>
                     
                     <li class="dropdown">
-                        <a href="#">Registration <i class="fas fa-chevron-down"></i></a>
+                        <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-content registration-menu">
-                            <a href="#" class="menu-item">How To Apply</a>
-                            
-                            <div class="program-section">
-                                <h4>Our Programmes (scroll down to view more):</h4>
-                                
-                                <div class="program-category">
-                                    <h5 class="program-title">Executive</h5>
-                                    <ul>
-                                        <li><a href="#">Bachelor of Theology</a></li>
-                                        <li><a href="#">Master of Art in Theology</a></li>
-                                    </ul>
+                            <p class="programmes-heading">Programmes</p>
+                            <div class="programmes-list">
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Certificate Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Certificate in Music</a>
+                                        <a href="#">Certificate in Christian Ministry</a>
+                                    </div>
                                 </div>
-                    
-                                <div class="program-category">
-                                    <h5 class="program-title">Full-Time - Undergraduate</h5>
-                                    <ul>
-                                        <li><a href="#">Bachelor of Theology</a></li>
-                                        <li><a href="#">Certificate in Music</a></li>
-                                        <li><a href="#">Diploma in Music</a></li>
-                                        <li><a href="#">Diploma in Theology</a></li>
-                                    </ul>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Diploma Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Diploma in music</a>
+                                        <a href="#">Diploma in theology</a>
+                                    </div>
                                 </div>
-                    
-                                <div class="program-category">
-                                    <h5 class="program-title">Full-Time - Post Graduate</h5>
-                                    <ul>
-                                        <li><a href="#">Master of Art in Theology</a></li>
-                                        <li><a href="#">Doctor of Ministry</a></li>
-                                        <li><a href="#">Doctor of Philosophy</a></li>
-                                    </ul>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Degree Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Bachelor of Theology (Summer)</a>
+                                        <a href="#">Bachelor of Theology (Weekend)</a>
+                                        <a href="#">Bachelor of Theology (Special Executive)</a>
+                                        <a href="#">Bachelor of Theology (Day School)</a>
+                                    </div>
                                 </div>
-                                <a href="reference.html" class="menu-item">Reference Form</a>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Post-Graduate programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Master of Theology (Missions)</a>
+                                        <a href="#">Master of Theology (Biblical Studies)</a>
+                                        <a href="#">Master of Theology (Pastoral Studies)</a>
+                                        <a href="#">Master of Theology (Christian Education)</a>
+                                    </div>
+                                </div>
                             </div>
-                    
-                            
+                            <a href="{{ route('reference') }}">Reference Form</a>
                         </div>
                     </li>
                     <li><a href="#contact">FAQs</a></li>
                     @guest
-                    <li><a href="{{ route('login') }}" class="login-btn">Login</a></li>
+                    <li><a href="{{ route('login') }}" class="login-btn">Student Login</a></li>
                     <li><a href="{{ route('admin.login') }}" class="login-btn space-left">Admin Login</a></li>
                 @endguest
                 

@@ -251,6 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Hero background slideshow (sliding left-right)
+// Slides are pre-rendered server-side by Blade with correct {{ asset() }} URLs
+// (relative image paths would 404 on Laravel routes). This handler only manages
+// animation: clones the first slide for seamless looping, then translates the
+// strip on a timer or arrow click.
 document.addEventListener('DOMContentLoaded', () => {
     const heroSlidesContainer = document.querySelector('.hero-slides');
     const prevBtn = document.getElementById('heroPrev');
@@ -258,34 +262,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!heroSlidesContainer) return;
 
-    // List of hero background images
-    const heroImages = [
-        'images/homepage-bg1.jpeg',
-        'images/header.jpeg',
-        'images/homepage-bg2.jpeg',
-        'images/homepage-bg5.jpeg',
-        'images/homepage-bg3.jpeg',
-        'images/homepage-bg6.jpeg',
-        'images/homepage-bg4.jpeg',
-        'images/homepage-bg7.jpeg',
-        'images/homepage-bg8.jpeg',
-    ];
-
-    // Create slide elements
-    heroImages.forEach((imageUrl) => {
-        const slide = document.createElement('div');
-        slide.className = 'hero-slide';
-        slide.style.backgroundImage =
-            `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imageUrl}')`;
-        heroSlidesContainer.appendChild(slide);
-    });
+    // Count real slides already in the DOM (rendered by Blade)
+    const totalSlides = heroSlidesContainer.querySelectorAll('.hero-slide').length;
+    if (totalSlides === 0) return;
 
     // Clone first slide and append to end for seamless forward loop
     const firstSlide = heroSlidesContainer.querySelector('.hero-slide');
     const firstClone = firstSlide.cloneNode(true);
     heroSlidesContainer.appendChild(firstClone);
 
-    const totalSlides = heroImages.length;  // real slide count
     const totalWithClone = totalSlides + 1; // includes clone at end
     let currentHeroIndex = 0;
     const SLIDE_INTERVAL_MS = 5000; // 5 seconds
@@ -437,6 +422,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Handle nested programme groups in registration menu (touch / mobile)
+    document.querySelectorAll('.registration-menu .programmes-group-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const group = toggle.closest('.programmes-group');
+            const isOpen = group.classList.contains('is-open');
+
+            document.querySelectorAll('.registration-menu .programmes-group').forEach(item => {
+                item.classList.remove('is-open');
+            });
+
+            if (!isOpen) {
+                group.classList.add('is-open');
+            }
+        });
+    });
+
+    document.querySelectorAll('.registration-menu').forEach(menu => {
+        menu.addEventListener('mouseleave', () => {
+            menu.querySelectorAll('.programmes-group').forEach(group => {
+                group.classList.remove('is-open');
+            });
+        });
+    });
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024 && 
@@ -458,6 +470,25 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeMenu();
+        }
+    });
+
+    // Size each gallery frame to its image so photos fill the frame without cropping
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        const fitGalleryFrame = () => {
+            const { naturalWidth, naturalHeight } = img;
+            if (!naturalWidth || !naturalHeight) return;
+
+            const frame = img.closest('.gallery-item');
+            if (frame) {
+                frame.style.setProperty('--aspect-ratio', `${naturalWidth} / ${naturalHeight}`);
+            }
+        };
+
+        if (img.complete) {
+            fitGalleryFrame();
+        } else {
+            img.addEventListener('load', fitGalleryFrame, { once: true });
         }
     });
 });

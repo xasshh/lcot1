@@ -65,7 +65,14 @@ class StudentController extends Controller
         $student->update($data);
 
         if ($request->has('course_ids')) {
-            $student->courses()->sync($request->course_ids);
+            // Carry each course's own level onto the pivot so admin edits
+            // don't wipe the per-level registration data.
+            $courseLevels = Course::whereIn('id', $request->course_ids)->pluck('level', 'id');
+            $student->courses()->sync(
+                collect($request->course_ids)->mapWithKeys(
+                    fn ($id) => [$id => ['level' => $courseLevels[$id] ?? null]]
+                )->all()
+            );
         } else {
             $student->courses()->detach();
         }

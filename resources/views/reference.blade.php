@@ -5,9 +5,9 @@
         <div class="hero-content">
             <h1>Reference Form</h1>
             <div class="breadcrumb">
-                <a href="index.html">Home</a>
+                <a href="{{ route('home') }}">Home</a>
                 <span class="separator">/</span>
-                <a href="reference.html">Registration</a>
+                <a href="{{ route('reference') }}">Registration</a>
                 <span class="separator">/</span>
                 <span class="current">Reference Form</span>
             </div>

@@ -7,7 +7,6 @@ use App\Http\Controllers\AcredController;
 use App\Http\Controllers\ReferenceFormController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +17,7 @@ use App\Http\Controllers\ReferenceFormController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
@@ -31,6 +31,7 @@ Route::get('/rectors-desk', [PageController::class, 'rectorsDesk'])->name('recto
 Route::get('/reference', [PageController::class, 'reference'])->name('reference');
 Route::get('/governing-council', [PageController::class, 'governingCouncil'])->name('governingCouncil');
 Route::get('/acred', [AcredController::class, 'index'])->name('acred');
+Route::get('/mission-vision-values', [PageController::class, 'missionVisionValues'])->name('mission-vision-values');
 
 
 Route::post('/pay-for-form', [App\Http\Controllers\PaymentController::class, 'redirectToGateway'])->name('pay');
@@ -46,6 +47,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+use App\Http\Controllers\CourseRegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\StudentController as AdminStudentController;
@@ -53,6 +55,7 @@ use App\Http\Controllers\Admin\CourseController as AdminCourseController;
 use App\Http\Controllers\Admin\TimetableController as AdminTimetableController;
 use App\Http\Controllers\Admin\StaffController as AdminStaffController;
 use App\Http\Controllers\Admin\AccountController as AdminAccountController;
+use App\Http\Controllers\Admin\ResultController as AdminResultController;
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
@@ -85,18 +88,26 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/account', [AdminAccountController::class, 'edit'])->name('account.edit');
     Route::put('/account/password', [AdminAccountController::class, 'updatePassword'])->name('account.password');
 
-    // Staff management — super_admin only
+    // Staff management & result uploads — super_admin only
     Route::middleware('super_admin')->group(function () {
         Route::get('/staff', [AdminStaffController::class, 'index'])->name('staff.index');
         Route::get('/staff/create', [AdminStaffController::class, 'create'])->name('staff.create');
         Route::post('/staff', [AdminStaffController::class, 'store'])->name('staff.store');
         Route::delete('/staff/{staff}', [AdminStaffController::class, 'destroy'])->name('staff.destroy');
+
+        Route::get('/results', [AdminResultController::class, 'index'])->name('results.index');
+        Route::get('/results/{student}', [AdminResultController::class, 'create'])->name('results.create');
+        Route::post('/results/{student}', [AdminResultController::class, 'store'])->name('results.store');
+        Route::delete('/results/{student}', [AdminResultController::class, 'destroy'])->name('results.destroy');
     });
 });
 
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/course-registration', [CourseRegistrationController::class, 'create'])->name('courses.register');
+    Route::post('/course-registration', [CourseRegistrationController::class, 'store'])->name('courses.register.store');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -104,3 +115,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+

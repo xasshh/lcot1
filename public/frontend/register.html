@@ -23,28 +23,94 @@
     </div>
 
     <!-- Header -->
-    <header>
+     <!-- Header -->
+     <header>
         <nav class="container">
             <div class="logo">
                 <a href="index.html"><img src="images/head.png" alt="Institution Logo"></a>
             </div>
 
             <div id="showMenu">
-                <i class="fas fa-bars" id="showMenu"></i>
+                <i class="fas fa-bars"></i>
             </div>
 
             <div class="nav-links" id="navLinks">
                 <div id="closeMenu">
-                    <i class="fas fa-times" id="closeMenu"></i>
+                    <i class="fas fa-times"></i>
                 </div>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html" class="login-btn">Login</a></li>
+                    <li class="dropdown">
+                        <a href="#">Introduction <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="history.html">Our History</a>
+                            <a href="mission_vission_values.html">Mission./Vision./Values</a>
+                            <a href="acred.html">Aff./Acred./Memb</a>
+                            <a href="gallery.html">Gallery</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Administration <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="governing-council.html">Governing Council</a>
+                            <a href="management.html">Management Team</a>
+                            <a href="center.html">Center Coordinators</a>
+                            <a href="faculty.html">Faculty Members</a>
+                            <a href="non-teaching-staff.html">Non-Teaching Staff</a>
+                        </div>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Programmes <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content registration-menu">
+                            <p class="programmes-heading">Programmes</p>
+                            <div class="programmes-list">
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Certificate Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Certificate in Music</a>
+                                        <a href="#">Certificate in Christian Ministry</a>
+                                    </div>
+                                </div>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Diploma Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Diploma in music</a>
+                                        <a href="#">Diploma in theology</a>
+                                    </div>
+                                </div>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Degree Programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Bachelor of Theology (Summer)</a>
+                                        <a href="#">Bachelor of Theology (Weekend)</a>
+                                        <a href="#">Bachelor of Theology (Special Executive)</a>
+                                        <a href="#">Bachelor of Theology (Day School)</a>
+                                    </div>
+                                </div>
+                                <div class="programmes-group">
+                                    <a href="#" class="programmes-group-toggle">Post-Graduate programs <i class="fas fa-chevron-down"></i></a>
+                                    <div class="programmes-group-panel">
+                                        <a href="#">Master of Theology (Missions)</a>
+                                        <a href="#">Master of Theology (Biblical Studies)</a>
+                                        <a href="#">Master of Theology (Pastoral Studies)</a>
+                                        <a href="#">Master of Theology (Christian Education)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li><a href="#contact">FAQs</a></li>
+                    <li><a href="register.html" class="login-btn">Student Login</a></li>
+                    <li><a href="admin.html" class="login-btn">Admin Login</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
+    
     <!-- Registration Form -->
     <div class="registration-container">
         <h2>Create Account</h2>

@@ -1,5 +1,5 @@
 .page-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/bg-header.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/bg-header.jpeg');
     background-size: cover;
     background-position: center;
     height: clamp(200px, 25vh, 300px);

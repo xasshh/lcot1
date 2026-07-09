@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Support\Timetable;
 use Illuminate\Http\Request;
 
 class TimetableController extends Controller
@@ -27,12 +28,23 @@ class TimetableController extends Controller
 
     public function update(Request $request, User $student)
     {
-        $data = $request->validate([
-            'course_timetable' => 'nullable|string',
-            'exam_timetable'   => 'nullable|string',
+        $request->validate([
+            'course'          => 'nullable|array',
+            'course.*'        => 'array',
+            'course.*.time'   => 'nullable|string|max:120',
+            'course.*.course' => 'nullable|string|max:150',
+            'course.*.venue'  => 'nullable|string|max:120',
+            'exam'            => 'nullable|array',
+            'exam.*'          => 'array',
+            'exam.*.time'     => 'nullable|string|max:120',
+            'exam.*.course'   => 'nullable|string|max:150',
+            'exam.*.venue'    => 'nullable|string|max:120',
         ]);
 
-        $student->update($data);
+        $student->update([
+            'course_timetable' => Timetable::encode($request->input('course')),
+            'exam_timetable'   => Timetable::encode($request->input('exam')),
+        ]);
 
         return redirect()->route('admin.timetable.index')
             ->with('success', "Timetable for \"{$student->name}\" updated.");

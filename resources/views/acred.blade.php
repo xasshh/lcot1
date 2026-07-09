@@ -5,7 +5,7 @@
             <div class="hero-content">
                 <h1>Aff./Acred./Memb.</h1>
                 <div class="breadcrumb">
-                    <a href="index.html">Home</a>
+                    <a href="{{ route('home') }}">Home</a>
                     <span class="separator">/</span>
                     <a href="#">Introduction</a>
                     <span class="separator">/</span>
