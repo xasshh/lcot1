@@ -4,6 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,">
     <title>Life College of Theology Abuja</title>
+
+    {{-- Favicons --}}
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon-192.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+
+    {{-- SEO / social sharing --}}
+    <meta name="description" content="Life College of Theology, Abuja — training men and women for ministry through Bachelor's, Special Executive Bachelor's and Master's degree programmes in theology.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Life College of Theology, Abuja">
+    <meta property="og:title" content="Life College of Theology, Abuja">
+    <meta property="og:description" content="Training men and women for ministry through Bachelor's, Special Executive Bachelor's and Master's degree programmes in theology.">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('og-image.png') }}">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollegeOrUniversity",
+        "name": "Life College of Theology, Abuja",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('og-image.png') }}",
+        "email": "abujalifecollege@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Foursquare Gospel Church, Behind Government Secondary School, Area 10, Garki",
+            "addressLocality": "Abuja",
+            "addressCountry": "NG"
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/governing-council.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/acred.css') }}">
