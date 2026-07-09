@@ -34,10 +34,10 @@
         @endif
 
         @if(! $program)
-            {{-- Students choose their programme track here before registering courses --}}
+            {{-- Legacy accounts choose their programme track first --}}
             <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
                 <h2 class="text-base font-bold text-slate-800 mb-1">Choose your programme track</h2>
-                <p class="text-sm text-slate-500 mb-5">Select the programme you are taking — this loads the right course lists for your registration. You only do this once.</p>
+                <p class="text-sm text-slate-500 mb-5">Your account was created before programme tracks were introduced. Select yours to load the right course lists.</p>
                 <form method="POST" action="{{ route('courses.register.store') }}" class="space-y-3">
                     @csrf
                     @foreach(\App\Models\Course::PROGRAMS as $key => $label)

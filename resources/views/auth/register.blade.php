@@ -58,6 +58,20 @@
             @enderror
         </div>
 
+        {{-- Programme --}}
+        <div class="form-group">
+            <label>Programme</label>
+            <select id="programTaken" name="programTaken" required>
+                <option value="">Select Programme</option>
+                <option value="bachelor" {{ old('programTaken') === 'bachelor' ? 'selected' : '' }}>Bachelor's Degree Programme</option>
+                <option value="special_executive" {{ old('programTaken') === 'special_executive' ? 'selected' : '' }}>Special Executive Bachelor's Degree</option>
+                <option value="masters" {{ old('programTaken') === 'masters' ? 'selected' : '' }}>Master's Degree Programme</option>
+            </select>
+            @error('programTaken')
+                <p style="margin-top:0.3rem;font-size:0.78rem;color:#dc2626;">{{ $message }}</p>
+            @enderror
+        </div>
+
         {{-- Year Admitted --}}
         <div class="form-group">
             <label>Year Admitted</label>
@@ -76,7 +90,7 @@
         <div class="form-group">
             <label>Matric Number</label>
             <div class="matric-input-wrapper">
-                <span id="matricPrefix">--/----/</span>
+                <span id="matricPrefix">--/--/----/</span>
                 <input type="text" name="matric_suffix" placeholder="Enter unique number" required>
             </div>
 
@@ -125,8 +139,15 @@
         </div>
     </div>
     <script>
+const programAbbreviations = {
+    'bachelor': 'BDP',
+    'special_executive': 'SEB',
+    'masters': 'MDP'
+};
+
 function updateMatricPrefix() {
     const center = document.getElementById('programCenter');
+    const program = document.getElementById('programTaken');
     const year = document.getElementById('yearAdmitted');
     const prefixSpan = document.getElementById('matricPrefix');
     const hiddenInput = document.getElementById('fullMatricNumber');
@@ -139,6 +160,7 @@ function updateMatricPrefix() {
         prefix += text.substring(0,2).toUpperCase() + '/';
     } else prefix += '--/';
 
+    prefix += program.value ? programAbbreviations[program.value] + '/' : '--/';
     prefix += year.value ? year.value + '/' : '----/';
 
     prefixSpan.textContent = prefix;
@@ -146,7 +168,7 @@ function updateMatricPrefix() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ['programCenter', 'yearAdmitted'].forEach(id => {
+    ['programCenter', 'programTaken', 'yearAdmitted'].forEach(id => {
         document.getElementById(id).addEventListener('change', updateMatricPrefix);
     });
     document.querySelector('[name="matric_suffix"]').addEventListener('input', updateMatricPrefix);

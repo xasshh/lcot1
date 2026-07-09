@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -33,13 +35,12 @@ class RegisteredUserController extends Controller
      */
   public function store(Request $request): RedirectResponse
 {
-    // The programme track is not chosen at signup — students select it on the
-    // course-registration page (dashboard) before picking their courses.
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
         'programCenter' => 'required',
+        'programTaken' => ['required', Rule::in(array_keys(Course::PROGRAMS))],
         'yearAdmitted' => 'required',
         'full_matric_number' => ['required', 'string', 'unique:users,matric_number'],
     ]);
@@ -50,6 +51,9 @@ class RegisteredUserController extends Controller
         'password' => Hash::make($request->password),
         'matric_number' => $request->full_matric_number,
         'program_center' => $request->programCenter,
+        'program' => $request->programTaken,
+        'program_taken' => Course::PROGRAMS[$request->programTaken],
+        'level' => Course::PROGRAM_LEVELS[$request->programTaken][0],
         'year_admitted' => $request->yearAdmitted,
     ]);
 
